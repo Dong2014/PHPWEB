@@ -30,7 +30,7 @@ class ItemController  extends Controller {
    public function get_item_list() {
         $sql = "SELECT * from items";
         foreach ($this->db_connect->query($sql) as $row) {
-            $dataSet[] = $row['itempath'];
+            $dataSet[] = $row;
         }
 
         if (!empty($dataSet))
