@@ -6,6 +6,10 @@
  $items_all= $itembase->get_item_list();  // all information for each item such as name , cost ,price ...
  // need to get a list of product
 $check = 0;
+ if($_SESSION['search']) {
+     $items_all = $_SESSION['search'];
+    $_SESSION['search'] = Null;
+ }
 ?>
 
 <div id ="itemcontainer">

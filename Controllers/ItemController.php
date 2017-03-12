@@ -23,7 +23,19 @@ class ItemController  extends Controller {
         
    }
    
-   public function search_item($item) {
+   public function search_item($itemname) {
+       
+       
+        $sql = "SELECT * FROM items WHERE itemname LIKE '%".$itemname. "%' OR itemcat LIKE '%".$itemname."%'";
+        foreach ($this->db_connect->query($sql) as $row) {
+            $dataSet[] = $row;
+        }
+
+        if (!empty($dataSet))
+            return $dataSet;
+        else
+            return null;
+       
        
        
    }
