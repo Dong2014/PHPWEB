@@ -5,9 +5,6 @@ if($_SESSION['itemid'])
 {
     print_r($_SESSION['itemid']);
     
-    
-    $_SESSION['itemid'] = NUll;
-   
 }
 
 
