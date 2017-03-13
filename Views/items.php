@@ -10,8 +10,9 @@ $check = 0;
      $items_all = $_SESSION['search'];
     $_SESSION['search'] = Null;
  }
-?>
 
+?>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <div id ="itemcontainer">
 
     
@@ -32,10 +33,10 @@ $check = 0;
   <div id = "itemRow"class="row">
     <div class="col-md-3">
       <div class="thumbnail">
-        <a href="<?php echo $newitem["itempath"] ?>" target="_blank">
-          <img src="<?php echo $newitem["itempath"]  ?>" alt="Lights"width="200" height="200">
+        <a id = "test" href=  "<?php echo $newitem['itemid'];?>" target="_blank">
+          <img src="<?php echo $newitem["itempath"]  ?>" onclick="return false;" alt="Lights"width="200" height="200">
           <div class="caption">
-            <p><?php echo $newitem['itemname']?></p>
+            <p><?php echo $newitem['itemid']?></p>
           </div>
         </a>
       </div>
@@ -46,7 +47,7 @@ $check = 0;
         <a href="<?php $newitem = next($items_all); echo $newitem["itempath"] ?>" target="_blank">
           <img src="<?php  echo $newitem["itempath"]  ?>" alt="Lights"width="200" height="200">
           <div class="caption">
-            <p><?php echo $newitem['itemname']?></p>
+            <p><?php echo $newitem['itemid']?></p>
           </div>
         </a>
       </div>
@@ -57,7 +58,7 @@ $check = 0;
         <a href="<?php $newitem = next($items_all); echo $newitem["itempath"] ?>" target="_blank">
           <img src="<?php  echo $newitem["itempath"]  ?>" alt="Lights"width="200" height="200">
           <div class="caption">
-           <p><?php echo $newitem['itemname']?></p>
+           <p><?php echo $newitem['itemid']?></p>
           </div>
         </a>
       </div>
@@ -69,7 +70,7 @@ $check = 0;
         <a href="<?php $newitem = next($items_all); echo $newitem["itempath"] ?>" target="_blank">
           <img src="<?php  echo $newitem["itempath"]  ?>" alt="Lights"width="200" height="200">
           <div class="caption">
-           <p><?php echo $newitem['itemname']?></p>
+           <p><?php echo $newitem['itemid']?></p>
           </div>
         </a>
       </div>
@@ -89,3 +90,14 @@ $check = 0;
     
     
 </div>
+
+
+<script>
+
+$("#test").click(function(){
+  
+  var products = <?php echo json_encode($test1) ?>;
+  alert('test: ' + products.toString());
+});
+</script>
+ 

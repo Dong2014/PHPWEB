@@ -6,7 +6,7 @@ class Controller {
 
 
 
-    protected $db_connect;
+    protected static  $db_connect;
 
     /**
      * Constructor

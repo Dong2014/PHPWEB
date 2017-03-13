@@ -15,6 +15,6 @@
   
   $itembase = new ItemController();
   $itemlist = $itembase->get_item_list();
-  print_r($itemlist);
+  echo "size is ". sizeof($itemlist[1]);
 ?>
 

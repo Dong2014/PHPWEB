@@ -3,6 +3,7 @@ require_once("Controller.php");
 class ItemController  extends Controller {
     
         public function __construct() {
+            
         parent::__construct();
 
     }
@@ -41,15 +42,22 @@ class ItemController  extends Controller {
    }
    public function get_item_list() {
         $sql = "SELECT * from items";
+        $dataSet[] = Null;
         foreach ($this->db_connect->query($sql) as $row) {
-            $dataSet[] = $row;
+             $dataSet[] =$row;
         }
 
         if (!empty($dataSet))
             return $dataSet;
         else
             return null;
+      
+   
+    
     }
+  
+    
+    
 
 }
 ?>
