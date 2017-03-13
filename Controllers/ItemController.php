@@ -30,16 +30,18 @@ class ItemController  extends Controller {
    }
    public function get_item_list() {
         $sql = "SELECT * from items";
-        $dataSet[] = Null;
-        foreach ($this->db_connect->query($sql) as $row) {
-             $dataSet[] =$row;
-        }
+        
+        $result = mysqli_query($this->conn,$sql);
+       while( $temp = mysqli_fetch_assoc($result))
+       {
+          $dataSet[] = $temp; 
+       }
+       if($dataSet != Null)
+       return $dataSet;
+       else
+       return Null;
 
-        if (!empty($dataSet))
-            return $dataSet;
-        else
-            return null;
-      
+     
    
     
     }

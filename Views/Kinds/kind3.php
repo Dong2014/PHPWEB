@@ -15,6 +15,12 @@
   
   $itembase = new ItemController();
   $itemlist = $itembase->get_item_list();
-  echo "size is ". sizeof($itemlist[1]);
+  $i = 1;
+  foreach ($itemlist as $row) {
+      echo "<br> # " . $i."  " ;  print_r($row);      echo "<br>";
+      $i = $i + 1;
+      
+  }
+
 ?>
 
