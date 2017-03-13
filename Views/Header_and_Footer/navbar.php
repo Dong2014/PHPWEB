@@ -15,6 +15,9 @@ if(isset($_SESSION))
      
     
 }
+  $path = $_SERVER['DOCUMENT_ROOT'];
+  require_once($path."/Controllers/ItemController.php");
+  require_once($path."/Models/Item.php");
 ?>
 
 <html>
@@ -77,8 +80,8 @@ footer {
                             <a id = "inventory"class="nav-link" href="/Views/inventory.php">Inventory</a>
                       </li>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                    <form action ="<?php $_PHP_SELF ?>"  method="post" class="form-inline my-2 my-lg-0">
+                        <input name ="search" class="form-control mr-sm-2" type="text" placeholder="Search">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
                 </div>
@@ -106,3 +109,31 @@ footer {
     </body>
     
 </html>
+
+
+
+<?php 
+if($_POST['search'])
+{
+    $inventory = new ItemController();
+    echo "POST: " . $_POST['search'];
+    $list = $inventory->search_item($_POST['search']);
+    $_SESSION['search'] = $list;
+    
+    
+    
+   
+    
+    
+    
+   
+}  else {
+    
+
+    
+}
+?>
+
+
+
+

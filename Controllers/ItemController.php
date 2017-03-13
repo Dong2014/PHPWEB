@@ -24,8 +24,18 @@ class ItemController  extends Controller {
         
    }
    
-   public function search_item($item) {
-       
+   public function search_item($itemname) {
+        $sql = "SELECT * FROM items WHERE itemname LIKE '%".$itemname. "%' OR itemcat LIKE '%".$itemname."%'";
+         $result = mysqli_query($this->conn,$sql);
+       while( $temp = mysqli_fetch_assoc($result))
+       {
+        
+          $dataSet[] = $temp; 
+       }
+       if($dataSet != Null)
+       return $dataSet;
+       else
+       return Null;
        
    }
    public function get_item_list() {

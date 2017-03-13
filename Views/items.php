@@ -6,14 +6,18 @@
  $items_all= $itembase->get_item_list();  // all information for each item such as name , cost ,price ...
  // need to get a list of product
 $check = 0;
- print "size : " . sizeof($items_all);
+ 
  if($_SESSION['search']) {
+     $items_all = Null;
      $items_all = $_SESSION['search'];
+ 
     $_SESSION['search'] = Null;
  }
 
 ?>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+
 <div id ="itemcontainer">
 
     
@@ -45,7 +49,7 @@ $check = 0;
     </div>
      <div class="col-md-3">
       <div class="thumbnail">
-        <a href="<?php $newitem = next($items_all); echo $newitem["itempath"] ?>" target="_blank">
+        <a  href="<?php $newitem = next($items_all); echo $newitem["itempath"] ?>" target="_blank">
           <img src="<?php  echo $newitem["itempath"]  ?>" alt="Lights"width="200" height="200">
           <div class="caption">
             <p><?php echo $newitem['itemid']?></p>
@@ -95,10 +99,10 @@ $check = 0;
 
 <script>
 
-$("#t").click(function(){
+$("#itemRow").click(function(){
   
-  var products = <?php echo json_encode($test1) ?>;
-  alert('test: ' + products.toString());
+
+   alert( $('#test').attr('href'));
 });
 </script>
  
